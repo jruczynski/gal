@@ -1,0 +1,55 @@
+# This file was generated. Do not edit manually.
+
+schema {
+    query: Query
+}
+
+type Course {
+    date: Date
+    description: String
+    group: Int
+    id: Int
+    lecturer: Lecturer
+    lecturerId: Int
+    name: String
+    room: String
+}
+
+type Date {
+    end: String
+    start: String
+}
+
+type Group {
+    id: Int
+    students: [Int]
+}
+
+type Lecturer {
+    assignedCourses: [Int]
+    email: String
+    id: Int
+    name: String
+    surname: String
+}
+
+type Query {
+    course(id: Int!): Course
+    courses: [Course]
+    lecturers: [Lecturer]
+    student(id: Int!): Student
+    students: [Student]
+}
+
+type Room {
+    courses: [Int]
+    id: String
+}
+
+type Student {
+    assignedGroups: [Int]
+    email: String
+    id: Int
+    name: String
+    surname: String
+}
