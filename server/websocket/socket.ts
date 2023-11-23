@@ -1,7 +1,8 @@
 import {Server} from "socket.io";
+import {Positions} from "../../types";
 export const io = new Server();
 
-let positions = { };
+let positions: Positions = { };
 
 io.on('connection', (socket) => {
     console.log(`a user connected ${socket.id}`);

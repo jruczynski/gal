@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "tscinit": "tsc --init",
+    "buildwatch": "tsc --watch",
     "srv": "nodemon server/index.ts --ignore ./server/swagger.json",
     "srvGql": "nodemon graphql/index.js",
     "srvGRPC": "nodemon grpc/index.js",
