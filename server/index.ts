@@ -28,14 +28,16 @@ const options = {
         }
     }
 }
-const route = ['./server/index.js'];
-const def = await swaggerAutogen({openapi: '3.0.0'})
-('./swagger.json', route, options);
+const route = ['./server/index.ts'];
+const def = await swaggerAutogen({openapi: '3.0.0'})('./swagger.json', route, options);
 
+app.use(express.static('public'));
 app.use('/students', studentsRouter);
 app.use('/courses', coursesRouter);
 if(def){
-    app.use('/swagger', swaggerUi.serve, swaggerUi.setup(def.data));
+    app.use('/swagger', swaggerUi.serve, swaggerUi.setup(def.data, {
+        customCssUrl:"/swaggerDark.css"
+    }));
 }
 
 server.listen(3000, () => {
